@@ -19,10 +19,10 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="y">垂直偏移像素</param>
         public TranslateGraphics(Graphics graphics, int x, int y)
         {
-            this.m_Graphics = graphics;
-            this.m_X = x;
-            this.m_Y = y;
-            this.m_Graphics.TranslateTransform(this.m_X, this.m_Y);
+            m_Graphics = graphics;
+            m_X = x;
+            m_Y = y;
+            m_Graphics.TranslateTransform(m_X, m_Y);
         }
 
         /// <summary>
@@ -32,10 +32,10 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="p">偏移量</param>
         public TranslateGraphics(Graphics graphics, Point p)
         {
-            this.m_Graphics = graphics;
-            this.m_X = p.X;
-            this.m_Y = p.Y;
-            this.m_Graphics.TranslateTransform(this.m_X, this.m_Y);
+            m_Graphics = graphics;
+            m_X = p.X;
+            m_Y = p.Y;
+            m_Graphics.TranslateTransform(m_X, m_Y);
         }
 
         /// <summary>
@@ -45,10 +45,10 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="s">偏移量</param>
         public TranslateGraphics(Graphics graphics, Size s)
         {
-            this.m_Graphics = graphics;
-            this.m_X = s.Width;
-            this.m_Y = s.Height;
-            this.m_Graphics.TranslateTransform(this.m_X, this.m_Y);
+            m_Graphics = graphics;
+            m_X = s.Width;
+            m_Y = s.Height;
+            m_Graphics.TranslateTransform(m_X, m_Y);
         }
 
         /// <summary>
@@ -57,13 +57,13 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Graphics != null)
+            if (m_Graphics != null)
             {
-                this.m_Graphics.TranslateTransform(-this.m_X, -this.m_Y);
-                this.m_Graphics = null;
+                m_Graphics.TranslateTransform(-m_X, -m_Y);
+                m_Graphics = null;
             }
-            this.m_X = 0;
-            this.m_Y = 0;
+            m_X = 0;
+            m_Y = 0;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace WinForm.DirectUI
         {
             get
             {
-                return this.m_Disposing;
+                return m_Disposing;
             }
         }
 
@@ -42,7 +42,7 @@ namespace WinForm.DirectUI
         {
             get
             {
-                return this.m_IsDisposed;
+                return m_IsDisposed;
             }
         }
 
@@ -55,9 +55,9 @@ namespace WinForm.DirectUI
         {
             get
             {
-                if (this.m_Events == null)
-                    this.m_Events = new EventHandlerList();
-                return this.m_Events;
+                if (m_Events == null)
+                    m_Events = new EventHandlerList();
+                return m_Events;
             }
         }
 
@@ -71,8 +71,8 @@ namespace WinForm.DirectUI
         /// </summary>
         public event EventHandler Disposed
         {
-            add { this.Events.AddHandler(EVENT_DISPOSED, value); }
-            remove { this.Events.RemoveHandler(EVENT_DISPOSED, value); }
+            add { Events.AddHandler(EVENT_DISPOSED, value); }
+            remove { Events.RemoveHandler(EVENT_DISPOSED, value); }
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace WinForm.DirectUI
         /// </summary>
         ~Disposable()
         {
-            this.DisposeCore(false);
+            DisposeCore(false);
         }
 
         #endregion
@@ -107,26 +107,26 @@ namespace WinForm.DirectUI
         private void DisposeCore(bool disposing)
         {
             //调用限制
-            if (this.m_Disposing)
+            if (m_Disposing)
                 return;
-            this.m_Disposing = true;
+            m_Disposing = true;
 
             //供子类重写
-            this.Dispose(disposing);
+            Dispose(disposing);
 
             //释放事件列表
-            if (this.m_Events != null)
+            if (m_Events != null)
             {
-                EventHandler handler = (EventHandler)this.m_Events[EVENT_DISPOSED];
+                EventHandler handler = (EventHandler)m_Events[EVENT_DISPOSED];
                 if (handler != null)
                     handler(this, EventArgs.Empty);
-                this.m_Events.Dispose();
-                this.m_Events = null;
+                m_Events.Dispose();
+                m_Events = null;
             }
 
             //调用结束
-            this.m_Disposing = false;
-            this.m_IsDisposed = true;
+            m_Disposing = false;
+            m_IsDisposed = true;
         }
 
         #endregion
@@ -150,7 +150,7 @@ namespace WinForm.DirectUI
         /// </summary>
         public void CheckDisposed()
         {
-            if (this.IsDisposed)
+            if (IsDisposed)
                 throw new ObjectDisposedException(base.GetType().FullName);
         }
 
@@ -159,7 +159,7 @@ namespace WinForm.DirectUI
         /// </summary>
         public void Dispose()
         {
-            this.DisposeCore(true);
+            DisposeCore(true);
             GC.SuppressFinalize(this);
         }
 

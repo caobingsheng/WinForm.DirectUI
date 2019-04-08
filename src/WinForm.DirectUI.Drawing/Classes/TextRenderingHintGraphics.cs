@@ -27,8 +27,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="newHint">新文本呈现模式</param>
         public TextRenderingHintGraphics(Graphics graphics, TextRenderingHint newHint)
         {
-            this.m_Graphics = graphics;
-            this.m_OldHint = graphics.TextRenderingHint;
+            m_Graphics = graphics;
+            m_OldHint = graphics.TextRenderingHint;
             graphics.TextRenderingHint = newHint;
         }
 
@@ -38,12 +38,12 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Graphics != null)
+            if (m_Graphics != null)
             {
-                this.m_Graphics.TextRenderingHint = this.m_OldHint;
-                this.m_Graphics = null;
+                m_Graphics.TextRenderingHint = m_OldHint;
+                m_Graphics = null;
             }
-            this.m_OldHint = TextRenderingHint.SystemDefault;
+            m_OldHint = TextRenderingHint.SystemDefault;
         }
     }
 }

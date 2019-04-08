@@ -21,7 +21,7 @@ namespace WinForm.DirectUI
         /// </summary>
         ~DisposableMini()
         {
-            this.Dispose(false);
+            Dispose(false);
         }
 
         #endregion
@@ -45,7 +45,7 @@ namespace WinForm.DirectUI
         /// </summary>
         public void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
         }
 

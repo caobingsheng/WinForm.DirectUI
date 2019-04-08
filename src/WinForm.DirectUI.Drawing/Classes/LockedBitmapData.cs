@@ -19,11 +19,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.PixelFormat;
+                return m_BitmapData.PixelFormat;
             }
             set
             {
-                this.m_BitmapData.PixelFormat = value;
+                m_BitmapData.PixelFormat = value;
             }
         }
 
@@ -34,11 +34,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.Width;
+                return m_BitmapData.Width;
             }
             set
             {
-                this.m_BitmapData.Width = value;
+                m_BitmapData.Width = value;
             }
         }
 
@@ -49,11 +49,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.Height;
+                return m_BitmapData.Height;
             }
             set
             {
-                this.m_BitmapData.Height = value;
+                m_BitmapData.Height = value;
             }
         }
 
@@ -64,11 +64,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.Stride;
+                return m_BitmapData.Stride;
             }
             set
             {
-                this.m_BitmapData.Stride = value;
+                m_BitmapData.Stride = value;
             }
         }
 
@@ -79,11 +79,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.Scan0;
+                return m_BitmapData.Scan0;
             }
             set
             {
-                this.m_BitmapData.Scan0 = value;
+                m_BitmapData.Scan0 = value;
             }
         }
 
@@ -94,11 +94,11 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BitmapData.Reserved;
+                return m_BitmapData.Reserved;
             }
             set
             {
-                this.m_BitmapData.Reserved = value;
+                m_BitmapData.Reserved = value;
             }
         }
 
@@ -110,9 +110,9 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="format">像素格式</param>
         public LockedBitmapData(Bitmap bitmap, ImageLockMode flags, PixelFormat format)
         {
-            this.m_Bitmap = bitmap;
+            m_Bitmap = bitmap;
             Rectangle rect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
-            this.m_BitmapData = this.m_Bitmap.LockBits(rect, flags, format);
+            m_BitmapData = m_Bitmap.LockBits(rect, flags, format);
         }
 
         /// <summary>
@@ -121,11 +121,11 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Bitmap != null)
+            if (m_Bitmap != null)
             {
-                this.m_Bitmap.UnlockBits(this.m_BitmapData);
-                this.m_Bitmap = null;
-                this.m_BitmapData = null;
+                m_Bitmap.UnlockBits(m_BitmapData);
+                m_Bitmap = null;
+                m_BitmapData = null;
             }
         }
     }

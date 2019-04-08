@@ -25,7 +25,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="owner">拥有者</param>
         public DoubleBufferedGraphics(IWindow owner)
         {
-            this.m_Owner = owner;
+            m_Owner = owner;
         }
 
         #endregion
@@ -41,15 +41,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_CompositingMode;
+                return m_CompositingMode;
             }
             set
             {
-                if (value != this.m_CompositingMode)
+                if (value != m_CompositingMode)
                 {
-                    this.m_CompositingMode = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.CompositingMode = value;
+                    m_CompositingMode = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.CompositingMode = value;
                 }
             }
         }
@@ -62,15 +62,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_CompositingQuality;
+                return m_CompositingQuality;
             }
             set
             {
-                if (value != this.m_CompositingQuality)
+                if (value != m_CompositingQuality)
                 {
-                    this.m_CompositingQuality = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.CompositingQuality = value;
+                    m_CompositingQuality = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.CompositingQuality = value;
                 }
             }
         }
@@ -83,15 +83,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_InterpolationMode;
+                return m_InterpolationMode;
             }
             set
             {
-                if (value != this.m_InterpolationMode)
+                if (value != m_InterpolationMode)
                 {
-                    this.m_InterpolationMode = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.InterpolationMode = value;
+                    m_InterpolationMode = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.InterpolationMode = value;
                 }
             }
         }
@@ -104,15 +104,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_PixelOffsetMode;
+                return m_PixelOffsetMode;
             }
             set
             {
-                if (value != this.m_PixelOffsetMode)
+                if (value != m_PixelOffsetMode)
                 {
-                    this.m_PixelOffsetMode = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.PixelOffsetMode = value;
+                    m_PixelOffsetMode = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.PixelOffsetMode = value;
                 }
             }
         }
@@ -125,15 +125,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_SmoothingMode;
+                return m_SmoothingMode;
             }
             set
             {
-                if (value != this.m_SmoothingMode)
+                if (value != m_SmoothingMode)
                 {
-                    this.m_SmoothingMode = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.SmoothingMode = value;
+                    m_SmoothingMode = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.SmoothingMode = value;
                 }
             }
         }
@@ -146,15 +146,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_TextContrast;
+                return m_TextContrast;
             }
             set
             {
-                if (value != this.m_TextContrast)
+                if (value != m_TextContrast)
                 {
-                    this.m_TextContrast = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.TextContrast = value;
+                    m_TextContrast = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.TextContrast = value;
                 }
             }
         }
@@ -167,15 +167,15 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_TextRenderingHint;
+                return m_TextRenderingHint;
             }
             set
             {
-                if (value != this.m_TextRenderingHint)
+                if (value != m_TextRenderingHint)
                 {
-                    this.m_TextRenderingHint = value;
-                    if (this.m_BufferedGraphics != null)
-                        this.m_BufferedGraphics.Graphics.TextRenderingHint = value;
+                    m_TextRenderingHint = value;
+                    if (m_BufferedGraphics != null)
+                        m_BufferedGraphics.Graphics.TextRenderingHint = value;
                 }
             }
         }
@@ -187,7 +187,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_BufferedGraphics.Graphics;
+                return m_BufferedGraphics.Graphics;
             }
         }
 
@@ -199,7 +199,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return this.m_Size;
+                return m_Size;
             }
         }
 
@@ -214,13 +214,13 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="g">绘图画面</param>
         private void InitGraphics(Graphics g)
         {
-            g.CompositingMode = this.m_CompositingMode;
-            g.CompositingQuality = this.m_CompositingQuality;
-            g.InterpolationMode = this.m_InterpolationMode;
-            g.PixelOffsetMode = this.m_PixelOffsetMode;
-            g.SmoothingMode = this.m_SmoothingMode;
-            g.TextContrast = this.m_TextContrast;
-            g.TextRenderingHint = this.m_TextRenderingHint;
+            g.CompositingMode = m_CompositingMode;
+            g.CompositingQuality = m_CompositingQuality;
+            g.InterpolationMode = m_InterpolationMode;
+            g.PixelOffsetMode = m_PixelOffsetMode;
+            g.SmoothingMode = m_SmoothingMode;
+            g.TextContrast = m_TextContrast;
+            g.TextRenderingHint = m_TextRenderingHint;
         }
 
         #endregion
@@ -235,27 +235,27 @@ namespace WinForm.DirectUI.Drawing
         public bool Prepare()
         {
             //检查资源
-            this.CheckDisposed();
+            CheckDisposed();
 
             //检查资源
-            this.m_Owner.CheckDisposed();
+            m_Owner.CheckDisposed();
 
             //判断句柄
-            if (!this.m_Owner.IsHandleCreated)
+            if (!m_Owner.IsHandleCreated)
                 return false;
 
             //判断可见
-            if (!this.m_Owner.Visible)
+            if (!m_Owner.Visible)
                 return false;
 
             //判断大小
-            Size wndSize = this.m_Owner.Size;
+            Size wndSize = m_Owner.Size;
             if (wndSize.Width <= 0 || (wndSize.Height <= 0))
                 return false;
 
             //已创建
-            Size bufferSize = this.m_Size;
-            if (this.m_BufferedGraphics != null
+            Size bufferSize = m_Size;
+            if (m_BufferedGraphics != null
                 && bufferSize.Width >= wndSize.Width && bufferSize.Width <= wndSize.Width + PRE_ALLOC
                 && bufferSize.Height >= wndSize.Height && bufferSize.Height <= wndSize.Height + PRE_ALLOC)
                 return true;
@@ -267,27 +267,27 @@ namespace WinForm.DirectUI.Drawing
                 wndSize.Height += PRE_ALLOC;
 
             //设置状态
-            if (this.m_IsCreating)
+            if (m_IsCreating)
                 return false;
-            this.m_IsCreating = true;
+            m_IsCreating = true;
 
             //缓冲上下文
             BufferedGraphicsContext bufferedGraphicsContext = BufferedGraphicsManager.Current;
             bufferedGraphicsContext.MaximumBuffer = wndSize;
 
             //执行创建
-            if (this.m_OwnerGraphics == null)
-                this.m_OwnerGraphics = this.m_Owner.CreateGraphics();
-            if (this.m_BufferedGraphics != null)
-                this.m_BufferedGraphics.Dispose();
-            this.m_BufferedGraphics = bufferedGraphicsContext.Allocate(this.m_OwnerGraphics, new Rectangle(0, 0, wndSize.Width, wndSize.Height));
+            if (m_OwnerGraphics == null)
+                m_OwnerGraphics = m_Owner.CreateGraphics();
+            if (m_BufferedGraphics != null)
+                m_BufferedGraphics.Dispose();
+            m_BufferedGraphics = bufferedGraphicsContext.Allocate(m_OwnerGraphics, new Rectangle(0, 0, wndSize.Width, wndSize.Height));
 
             //初始化绘图对象
-            this.InitGraphics(this.m_BufferedGraphics.Graphics);
-            this.m_Size = wndSize;
+            InitGraphics(m_BufferedGraphics.Graphics);
+            m_Size = wndSize;
 
             //不创建
-            this.m_IsCreating = false;
+            m_IsCreating = false;
             return true;
         }
 
@@ -297,7 +297,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="g">目标设备渲染数据</param>
         public void BlendRender(Graphics g)
         {
-            BufferedGraphicsEx.BlendRender(this.m_BufferedGraphics, g);
+            BufferedGraphicsEx.BlendRender(m_BufferedGraphics, g);
         }
 
         /// <summary>
@@ -306,7 +306,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="e">目标设备渲染数据</param>
         public void BlendRender(PaintEventArgs e)
         {
-            BufferedGraphicsEx.BlendRender(this.m_BufferedGraphics, e.Graphics, e.ClipRectangle);
+            BufferedGraphicsEx.BlendRender(m_BufferedGraphics, e.Graphics, e.ClipRectangle);
         }
 
         /// <summary>
@@ -315,7 +315,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="g">目标设备渲染数据</param>
         public void Render(Graphics g)
         {
-            this.m_BufferedGraphics.Render(g);
+            m_BufferedGraphics.Render(g);
         }
 
         /// <summary>
@@ -324,7 +324,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="e">目标设备渲染数据</param>
         public void Render(PaintEventArgs e)
         {
-            BufferedGraphicsEx.Render(this.m_BufferedGraphics, e.Graphics, e.ClipRectangle);
+            BufferedGraphicsEx.Render(m_BufferedGraphics, e.Graphics, e.ClipRectangle);
         }
 
         #endregion
@@ -338,17 +338,17 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_BufferedGraphics != null)
+            if (m_BufferedGraphics != null)
             {
-                this.m_BufferedGraphics.Dispose();
-                this.m_BufferedGraphics = null;
+                m_BufferedGraphics.Dispose();
+                m_BufferedGraphics = null;
             }
-            if (this.m_OwnerGraphics != null)
+            if (m_OwnerGraphics != null)
             {
-                this.m_OwnerGraphics.Dispose();
-                this.m_OwnerGraphics = null;
+                m_OwnerGraphics.Dispose();
+                m_OwnerGraphics = null;
             }
-            this.m_Owner = null;//取消引用
+            m_Owner = null;//取消引用
         }
 
         #endregion

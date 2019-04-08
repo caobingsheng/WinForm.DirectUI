@@ -19,8 +19,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="combineMode">组合模式</param>
         public ClipGraphics(Graphics graphics, Graphics g, CombineMode combineMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldClip = graphics.Clip;
+            m_Graphics = graphics;
+            m_OldClip = graphics.Clip;
             graphics.SetClip(g, combineMode);
         }
 
@@ -32,8 +32,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="combineMode">组合模式</param>
         public ClipGraphics(Graphics graphics, GraphicsPath path, CombineMode combineMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldClip = graphics.Clip;
+            m_Graphics = graphics;
+            m_OldClip = graphics.Clip;
             graphics.SetClip(path, combineMode);
         }
 
@@ -45,8 +45,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="combineMode">组合模式</param>
         public ClipGraphics(Graphics graphics, Rectangle rect, CombineMode combineMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldClip = graphics.Clip;
+            m_Graphics = graphics;
+            m_OldClip = graphics.Clip;
             graphics.SetClip(rect, combineMode);
         }
 
@@ -58,8 +58,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="combineMode">组合模式</param>
         public ClipGraphics(Graphics graphics, RectangleF rect, CombineMode combineMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldClip = graphics.Clip;
+            m_Graphics = graphics;
+            m_OldClip = graphics.Clip;
             graphics.SetClip(rect, combineMode);
         }
 
@@ -71,8 +71,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="combineMode">组合模式</param>
         public ClipGraphics(Graphics graphics, Region region, CombineMode combineMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldClip = graphics.Clip;
+            m_Graphics = graphics;
+            m_OldClip = graphics.Clip;
             graphics.SetClip(region, combineMode);
         }
 
@@ -82,15 +82,15 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Graphics != null)
+            if (m_Graphics != null)
             {
-                this.m_Graphics.SetClip(this.m_OldClip, CombineMode.Replace);
-                this.m_Graphics = null;
+                m_Graphics.SetClip(m_OldClip, CombineMode.Replace);
+                m_Graphics = null;
             }
-            if (this.m_OldClip != null)
+            if (m_OldClip != null)
             {
-                this.m_OldClip.Dispose();
-                this.m_OldClip = null;
+                m_OldClip.Dispose();
+                m_OldClip = null;
             }
         }
     }

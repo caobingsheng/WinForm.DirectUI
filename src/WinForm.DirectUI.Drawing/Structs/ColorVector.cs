@@ -128,7 +128,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return (short)((this.Value >> 0x30) & ushort.MaxValue);
+                return (short)((Value >> 0x30) & ushort.MaxValue);
             }
         }
 
@@ -139,7 +139,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return (short)((this.Value >> 0x20) & ushort.MaxValue);
+                return (short)((Value >> 0x20) & ushort.MaxValue);
             }
         }
 
@@ -150,7 +150,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return (short)((this.Value >> 0x10) & ushort.MaxValue);
+                return (short)((Value >> 0x10) & ushort.MaxValue);
             }
         }
 
@@ -161,7 +161,7 @@ namespace WinForm.DirectUI.Drawing
         {
             get
             {
-                return (short)(this.Value & ushort.MaxValue);
+                return (short)(Value & ushort.MaxValue);
             }
         }
 
@@ -176,7 +176,7 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="value">长整型数值</param>
         private ColorVector(long value)
         {
-            this.Value = value;
+            Value = value;
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace WinForm.DirectUI.Drawing
         /// <returns>返回</returns>
         public override int GetHashCode()
         {
-            return this.Value.GetHashCode();
+            return Value.GetHashCode();
         }
 
         /// <summary>
@@ -221,13 +221,13 @@ namespace WinForm.DirectUI.Drawing
             else
             {
                 builder.Append("A=");
-                builder.Append(this.A);
+                builder.Append(A);
                 builder.Append(", R=");
-                builder.Append(this.R);
+                builder.Append(R);
                 builder.Append(", G=");
-                builder.Append(this.G);
+                builder.Append(G);
                 builder.Append(", B=");
-                builder.Append(this.B);
+                builder.Append(B);
             }
             builder.Append("]");
             return builder.ToString();
@@ -254,10 +254,10 @@ namespace WinForm.DirectUI.Drawing
         /// <returns>颜色</returns>
         public Color ToColor()
         {
-            return Color.FromArgb(MathEx.Clamp(this.A, (byte)0, (byte)255),
-                MathEx.Clamp(this.R, (byte)0, (byte)255),
-                MathEx.Clamp(this.G, (byte)0, (byte)255),
-                MathEx.Clamp(this.B, (byte)0, (byte)255));
+            return Color.FromArgb(MathEx.Clamp(A, (byte)0, (byte)255),
+                MathEx.Clamp(R, (byte)0, (byte)255),
+                MathEx.Clamp(G, (byte)0, (byte)255),
+                MathEx.Clamp(B, (byte)0, (byte)255));
         }
 
         #endregion
@@ -362,10 +362,10 @@ namespace WinForm.DirectUI.Drawing
         /// <returns>返回新颜色</returns>
         public static Color operator +(Color left, ColorVector right)
         {
-            return Color.FromArgb(MathEx.Clamp(left.A + right.A, (byte)0, (byte)255),
-                MathEx.Clamp(left.R + right.R, (byte)0, (byte)255),
-                MathEx.Clamp(left.G + right.G, (byte)0, (byte)255),
-                MathEx.Clamp(left.B + right.B, (byte)0, (byte)255));
+            return Color.FromArgb(MathEx.Clamp(left.A + right.A, 0, 255),
+                MathEx.Clamp(left.R + right.R, 0, 255),
+                MathEx.Clamp(left.G + right.G, 0, 255),
+                MathEx.Clamp(left.B + right.B, 0, 255));
         }
 
         /// <summary>
@@ -387,10 +387,10 @@ namespace WinForm.DirectUI.Drawing
         /// <returns>返回新颜色</returns>
         public static Color operator -(Color left, ColorVector right)
         {
-            return Color.FromArgb(MathEx.Clamp(left.A - right.A, (byte)0, (byte)255),
-                MathEx.Clamp(left.R - right.R, (byte)0, (byte)255),
-                MathEx.Clamp(left.G - right.G, (byte)0, (byte)255),
-                MathEx.Clamp(left.B - right.B, (byte)0, (byte)255));
+            return Color.FromArgb(MathEx.Clamp(left.A - right.A, 0, 255),
+                MathEx.Clamp(left.R - right.R, 0, 255),
+                MathEx.Clamp(left.G - right.G, 0, 255),
+                MathEx.Clamp(left.B - right.B, 0, 255));
         }
 
         /// <summary>

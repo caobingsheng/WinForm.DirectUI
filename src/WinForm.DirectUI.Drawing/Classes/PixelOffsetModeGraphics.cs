@@ -27,8 +27,8 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="newMode">新像素偏移模式</param>
         public PixelOffsetModeGraphics(Graphics graphics, PixelOffsetMode newMode)
         {
-            this.m_Graphics = graphics;
-            this.m_OldMode = graphics.PixelOffsetMode;
+            m_Graphics = graphics;
+            m_OldMode = graphics.PixelOffsetMode;
             graphics.PixelOffsetMode = newMode;
         }
 
@@ -38,12 +38,12 @@ namespace WinForm.DirectUI.Drawing
         /// <param name="disposing">释放托管资源为true,否则为false</param>
         protected override void Dispose(bool disposing)
         {
-            if (this.m_Graphics != null)
+            if (m_Graphics != null)
             {
-                this.m_Graphics.PixelOffsetMode = this.m_OldMode;
-                this.m_Graphics = null;
+                m_Graphics.PixelOffsetMode = m_OldMode;
+                m_Graphics = null;
             }
-            this.m_OldMode = PixelOffsetMode.Default;
+            m_OldMode = PixelOffsetMode.Default;
         }
     }
 }
